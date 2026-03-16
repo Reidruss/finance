@@ -1,0 +1,13 @@
+# Rust compilation artifacts
+target/
+**/target/
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Temporary files
+*.log

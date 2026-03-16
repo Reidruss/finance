@@ -1,0 +1,10 @@
+[package]
+name = "lob-engine"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+crossbeam-channel = "0.5.15"
+dashmap = "6.1.0"
+parking_lot = "0.12.5"
+thiserror = "2.0.18"

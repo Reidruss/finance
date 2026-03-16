@@ -1,0 +1,33 @@
+/trading-ecosystem
+├── /core
+│   ├── /lob-engine        # Rust — the matching engine (PyO3 bindings)
+│   ├── /abm               # Python/Mesa — agent scheduling
+│   └── /friction          # Fee/slippage models
+├── /genome
+│   ├── /archetypes        # Base agent templates
+│   ├── /encoding          # Fixed-param DNA arrays
+│   └── /ast-gp            # Strongly Typed Genetic Programming trees
+├── /evolution
+│   ├── /selection         # Tournament, fitness ranking
+│   ├── /crossover         # SBX for arrays, subtree for ASTs
+│   ├── /mutation          # Gaussian perturbation
+│   └── /fitness           # Sortino/Calmar evaluators
+├── /ml
+│   ├── /regime            # HMM/GMM classifier
+│   ├── /rl-controller     # Meta-controller agent
+│   └── /gene-pools        # Per-regime evolved populations
+├── /hpc
+│   ├── /mpi-workers       # Distributed fitness eval
+│   ├── /cluster-config    # SLURM job scripts for ISAAC-NG
+│   └── /gpu-tasks         # H100 workloads (RL, HMM training)
+├── /validation
+│   ├── /walk-forward      # k-fold rolling OOS pipeline
+│   └── /reporting         # Metrics, regime performance breakdown
+├── /data
+│   ├── /ingest            # Tick data pipeline
+│   └── /store             # Partitioned Parquet/Arrow storage
+├── /config
+│   └── /experiments       # YAML experiment definitions
+└── /docs
+    ├── ARCHETECTURE.txt   # Project structure reference
+    └── ROADMAP.md         # Development roadmap
