@@ -2,7 +2,8 @@
 # Install with: pip install -r requirements.txt
 
 # Phase 2 ABM stack
-mesa>=3.0.0
+mesa==3.0.0
+networkx>=3.0.0
 
 # Data ingestion stack
 polars[pyarrow]>=1.0.0

@@ -2,11 +2,6 @@
 
 This package contains the Agent-Based Modeling (ABM) engine for the trading simulation, built on top of the Mesa framework. It enforces a strict deterministic execution loop for reliable backtesting and strategy evaluation.
 
-## Environment Convention
-Use the single repository-level Python virtual environment at `.venv/` (repo root).
-Do not create or use a nested environment in `core/abm/.venv`.
-Setup and migration steps are documented in `docs/PYTHON_ENVIRONMENT.md`.
-
 ## Design Boundaries
 - **Domain:** Defines the fundamental types (Observation, Action, ExecutionReport, AgentAccountSnapshot) and the base Mesa wrappers. It holds no business logic.
 - **Runner:** Contains the Mesa `Model` shell. It is responsible for the episode loop, seeding, and advancing the global state.
@@ -16,3 +11,19 @@ Setup and migration steps are documented in `docs/PYTHON_ENVIRONMENT.md`.
 
 ## Core Contracts
 Agents strictly interact with the environment via pass-by-value contracts. An agent receives an `Observation` at the start of its step and returns an `Action` (place, cancel, hold). The model processes these actions and resolves them into `ExecutionReport`s, which update the `AgentAccountSnapshot`.
+
+## Sprint 1 Components
+- `domain/contracts.py`: canonical observation/action/execution/account contracts with runtime validation.
+- `domain/agent.py`: Mesa `Agent` wrapper that runs a typed policy with deterministic RNG.
+- `runner/seeding.py`: global seed normalization and per-agent seed derivation.
+- `scheduler/deterministic.py`: stable activation order based on sorted agent ids.
+- `runner/model.py`: minimal deterministic episode loop with synthetic market ticks and telemetry.
+- `policies/noop.py`: no-op policy for smoke tests and demo runs.
+
+## Quick Run
+From repository root with `.venv` active:
+
+```bash
+python -m core.abm.runner.demo
+pytest core/abm/tests -q
+```
