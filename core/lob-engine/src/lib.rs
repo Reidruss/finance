@@ -1,1 +1,2 @@
-pub use orderbook_rs::*;
+pub mod bindings;
+pub use bindings::*;

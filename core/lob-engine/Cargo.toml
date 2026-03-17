@@ -3,9 +3,15 @@ name = "lob-engine"
 version = "0.1.0"
 edition = "2024"
 
+[lib]
+name = "lob_engine"
+crate-type = ["cdylib", "rlib"]
+
 [dependencies]
 crossbeam-channel = "0.5.15"
 dashmap = "6.1.0"
 orderbook-rs = { git = "https://github.com/joaquinbejar/OrderBook-rs", version = "0.6.0" }
 parking_lot = "0.12.5"
 thiserror = "2.0.18"
+pyo3 = { version = "0.21", features = ["extension-module"] }
+pricelevel = "0.7.0"
