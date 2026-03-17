@@ -11,3 +11,7 @@ target/
 
 # Temporary files
 *.log
+
+# Virtual environments
+.venv/
+**/.venv/

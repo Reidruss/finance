@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "finance-data"
+version = "0.1.0"
+description = "Data ingestion and storage pipelines for trading simulations"
+requires-python = ">=3.10"
+dependencies = [
+    "polars[pyarrow]>=1.0.0",
+    "click>=8.0.0",
+    "pytest>=8.0.0"
+]
+
+[project.scripts]
+ingest = "finance_data.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["finance_data"]
