@@ -1,0 +1,18 @@
+# Single workspace Python environment dependencies
+# Install with: pip install -r requirements.txt
+
+# Phase 2 ABM stack
+mesa>=3.0.0
+
+# Data ingestion stack
+polars[pyarrow]>=1.0.0
+click>=8.0.0
+
+# Build tooling for PyO3 crates
+maturin>=1.0,<2.0
+
+# Test tooling
+pytest>=8.0.0
+
+# Local Python package(s)
+-e ./data

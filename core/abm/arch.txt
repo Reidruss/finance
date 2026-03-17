@@ -1,0 +1,18 @@
+core/
+└── abm/
+    # Python environment: use repo root .venv (../.. /.venv), not core/abm/.venv
+    ├── __init__.py
+    ├── README.md
+    ├── adapters/          # Ingestion of synthetic/historical market data
+    │   └── __init__.py
+    ├── domain/            # Core base classes and type contracts
+    │   ├── __init__.py
+    │   ├── agent.py       # Base agent wrapper
+    │   └── contracts.py   # Data classes for Observations, Actions, etc.
+    ├── policies/          # Specific agent implementations (no-op, etc.)
+    │   └── __init__.py
+    ├── runner/            # The Mesa model shell and episode loop
+    │   ├── __init__.py
+    │   └── model.py       # Base model wrapper
+    └── scheduler/         # Custom deterministic schedulers
+        └── __init__.py
