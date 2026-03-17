@@ -1,25 +1,39 @@
+import pytest
 import lob_engine
 
 def test_lob_basic():
-    print("Testing lob_engine initialization...")
-    ob = lob_engine.PyOrderBook("BTC/USD")
+    book = lob_engine.PyOrderBook("BTC-USD")
     
-    print("Adding orders...")
-    # order_id, quantity, side, price
-    ob.add_limit_order(1, 10, lob_engine.PySide.Bid, 50000)
-    ob.add_limit_order(2, 5, lob_engine.PySide.Ask, 50010)
+    # Test adding limit orders
+    book.add_limit_order(1, 100, lob_engine.PySide.Bid, 50000)
+    assert book.best_bid() == 50000
+    assert book.get_volume_at_price(lob_engine.PySide.Bid, 50000) == 100
     
-    bid = ob.best_bid()
-    ask = ob.best_ask()
-    count = ob.active_order_count()
+    book.add_limit_order(2, 50, lob_engine.PySide.Ask, 50010)
+    assert book.best_ask() == 50010
+    assert book.get_volume_at_price(lob_engine.PySide.Ask, 50010) == 50
+    assert book.active_order_count() == 2
     
-    print(f"Best Bid: {bid}, Best Ask: {ask}, Active Orders: {count}")
+    # Test canceling
+    assert book.cancel_order(2) == True
+    assert book.best_ask() is None
+    assert book.get_volume_at_price(lob_engine.PySide.Ask, 50010) == 0
+    assert book.active_order_count() == 1
     
-    assert bid == 50000, f"Expected best bid to be 50000, got {bid}"
-    assert ask == 50010, f"Expected best ask to be 50010, got {ask}"
-    assert count == 2, f"Expected active order count to be 2, got {count}"
+    # Re-add ask
+    book.add_limit_order(3, 50, lob_engine.PySide.Ask, 50010)
+    assert book.active_order_count() == 2
     
-    print("Test passed successfully!")
+    # Test market order execution
+    # A market buy of 25 should take half of the ask
+    book.add_market_order(4, 25, lob_engine.PySide.Bid)
+    
+    assert book.best_ask() == 50010
+    assert book.get_volume_at_price(lob_engine.PySide.Ask, 50010) == 25
 
-if __name__ == "__main__":
-    test_lob_basic()
+    # Test full execution with a limit order
+    book.add_limit_order(5, 25, lob_engine.PySide.Bid, 50010)
+    assert book.best_ask() is None
+    assert book.get_volume_at_price(lob_engine.PySide.Ask, 50010) == 0
+    assert book.best_bid() == 50000
+

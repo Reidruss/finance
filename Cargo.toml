@@ -1,5 +1,6 @@
 [workspace]
-members = [
+members = ["core/friction",
+    "core/friction",
     "core/lob-engine",
 ]
 resolver = "2"

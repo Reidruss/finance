@@ -13,7 +13,7 @@
 - **Agent Scheduling:** Develop the engine to step agents through time, allowing them to observe the LOB and submit orders via the PyO3 bindings.
 
 ## Phase 3: Evolutionary Primitives & Genome Design
-- **Genetic Representation:** 
+- **Genetic Representation:**
   - Implement fixed-parameter DNA arrays (`genome/encoding`) for simple continuous/discrete traits.
   - Implement Strongly Typed Genetic Programming (AST-GP) trees (`genome/ast-gp`) for evolving complex trading logic and expressions.
 - **Evolutionary Operators:**
