@@ -26,6 +26,7 @@ Harden the ABM foundation for scale and freeze interfaces required by Phase 3.
 - [ ] Verify failure handling and graceful abort paths.
 - [ ] Add sanity checks for account conservation invariants.
 - [ ] Add startup validation for config/data compatibility.
+- [ ] Verify pinned Mesa version compatibility and lockfile stability in CI.
 
 ### 4) Interface freeze and handoff
 - [ ] Freeze core contracts consumed by evolution modules.

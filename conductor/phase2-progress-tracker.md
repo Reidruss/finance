@@ -3,6 +3,9 @@
 ## Goal
 Build the ABM foundation so agents can observe market state, decide actions, route to the LOB via Python-Rust bindings, and run deterministic historical simulations.
 
+## Framework Choice
+- Mesa is the ABM framework for Phase 2 (agent model, scheduling integration, and episode orchestration).
+
 ## Status Dashboard
 - [ ] Sprint 1 complete
 - [ ] Sprint 2 complete
@@ -30,3 +33,4 @@ Build the ABM foundation so agents can observe market state, decide actions, rou
 ## Notes
 - Keep all new interfaces stable after Sprint 4 unless change is strictly required.
 - Record benchmark numbers and deterministic replay hashes in Sprint 6.
+- Prefer Mesa-native extension points before introducing custom simulation infrastructure.

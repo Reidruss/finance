@@ -1,7 +1,7 @@
 # Phase 2 Sprint 5: Data-Driven Episode Runner
 
 ## Objective
-Connect ABM runner to historical datasets and experiment configs for reproducible scenario execution.
+Connect Mesa ABM runner to historical datasets and experiment configs for reproducible scenario execution.
 
 ## Deliverables
 - [ ] Load historical market slices from data/store.
@@ -26,11 +26,13 @@ Connect ABM runner to historical datasets and experiment configs for reproducibl
 - [ ] Define ABM experiment schema in config/experiments.
 - [ ] Validate required fields and defaults.
 - [ ] Persist config hash in run metadata.
+- [ ] Add Mesa model configuration section (scheduler mode, agent counts, deterministic seed).
 
 ### 4) Metrics pipeline
 - [ ] Record PnL decomposition, inventory, turnover, and fill quality.
 - [ ] Emit both per-agent and aggregate metrics.
 - [ ] Write run summaries for later fitness consumption.
+- [ ] Evaluate Mesa DataCollector usage vs custom collector and standardize on one path.
 
 ### 5) Test gates
 - [ ] Integration test: real historical slice drives full episode.

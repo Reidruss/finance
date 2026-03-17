@@ -1,7 +1,7 @@
 # Phase 2 Sprint 2: Market Bridge and State Hydration
 
 ## Objective
-Connect ABM actions to the Rust LOB path and hydrate agent observations from market state.
+Connect Mesa agent actions to the Rust LOB path and hydrate agent observations from market state.
 
 ## Deliverables
 - [ ] Implement ABM to LOB adapter.
@@ -16,6 +16,7 @@ Connect ABM actions to the Rust LOB path and hydrate agent observations from mar
 - [ ] Implement adapter interface for add/cancel/query operations.
 - [ ] Add robust error handling and reason codes for rejected actions.
 - [ ] Capture latency metrics around adapter calls.
+- [ ] Expose adapter to Mesa model context so agents can route actions without direct engine coupling.
 
 ### 2) Action translation
 - [ ] Map place actions to engine order format.

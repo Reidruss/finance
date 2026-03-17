@@ -1,7 +1,7 @@
 # Phase 2 Sprint 3: Archetype Framework
 
 ## Objective
-Implement reusable archetype policy framework and baseline market participant archetypes.
+Implement reusable Mesa-compatible archetype policy framework and baseline market participant archetypes.
 
 ## Deliverables
 - [ ] Define archetype policy interface and registration mechanism.
@@ -16,6 +16,7 @@ Implement reusable archetype policy framework and baseline market participant ar
 - [ ] Create policy interface with observe and decide stages.
 - [ ] Define immutable config vs mutable runtime state.
 - [ ] Add archetype registry and factory creation flow.
+- [ ] Implement base archetype classes using Mesa Agent inheritance.
 
 ### 2) Baseline archetypes
 - [ ] Noise trader policy with configurable order frequency and size distribution.

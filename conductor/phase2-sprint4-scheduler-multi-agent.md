@@ -5,6 +5,7 @@ Build deterministic, configurable scheduling for multi-agent interactions and ev
 
 ## Deliverables
 - [ ] Implement scheduler modes: sequential, seeded-random, role-priority.
+- [ ] Choose Mesa scheduler implementation strategy (built-in vs custom deterministic scheduler).
 - [ ] Define intra-step event ordering contract.
 - [ ] Handle timing conflicts and cancellation semantics.
 - [ ] Add event-time and fixed-step clock modes.
@@ -16,6 +17,7 @@ Build deterministic, configurable scheduling for multi-agent interactions and ev
 - [ ] Implement sequential activation.
 - [ ] Implement seeded-random activation.
 - [ ] Implement role-priority activation.
+- [ ] Validate mode mapping onto Mesa scheduler API surface.
 
 ### 2) Step ordering contract
 - [ ] Ingest market updates.
