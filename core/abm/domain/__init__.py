@@ -1,8 +1,9 @@
 """Domain contracts and base wrappers for ABM agents."""
 
-from core.abm.domain.agent import BaseABMAgent, PolicyFn
+from core.abm.domain.agent import ArchetypeABMAgent, BaseABMAgent, PolicyFn
 from core.abm.domain.contracts import (
     Action,
+    ActionRejectReason,
     ActionType,
     AgentAccountSnapshot,
     ExecutionReport,
@@ -14,8 +15,10 @@ from core.abm.domain.contracts import (
 
 __all__ = [
     "Action",
+    "ActionRejectReason",
     "ActionType",
     "AgentAccountSnapshot",
+    "ArchetypeABMAgent",
     "BaseABMAgent",
     "ExecutionReport",
     "ExecutionStatus",

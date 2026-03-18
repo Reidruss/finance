@@ -23,6 +23,14 @@ class ExecutionStatus(str, Enum):
     NONE = "none"
 
 
+class ActionRejectReason(str, Enum):
+    NONE = "none"
+    INVALID_ACTION = "invalid_action"
+    LIMIT_VIOLATION = "limit_violation"
+    ORDER_NOT_FOUND = "order_not_found"
+    ADAPTER_ERROR = "adapter_error"
+
+
 @dataclass(frozen=True)
 class MarketSnapshot:
     symbol: str
@@ -106,17 +114,29 @@ class ExecutionReport:
     agent_id: str
     order_id: str | None
     status: ExecutionStatus
+    side: Side | None = None
+    requested_qty: float = 0.0
     filled_qty: float = 0.0
     fill_price: float | None = None
     reason: str = ""
+    reject_reason: ActionRejectReason = ActionRejectReason.NONE
+    fee_cost: float = 0.0
+    slippage_cost: float = 0.0
+    latency_us: int = 0
 
     def __post_init__(self) -> None:
         if not self.agent_id:
             raise ValueError("agent_id is required")
+        if self.requested_qty < 0:
+            raise ValueError("requested_qty cannot be negative")
         if self.filled_qty < 0:
             raise ValueError("filled_qty cannot be negative")
         if self.fill_price is not None and self.fill_price <= 0:
             raise ValueError("fill_price must be positive when provided")
+        if self.fee_cost < 0 or self.slippage_cost < 0:
+            raise ValueError("fee_cost and slippage_cost cannot be negative")
+        if self.latency_us < 0:
+            raise ValueError("latency_us cannot be negative")
 
 
 @dataclass(frozen=True)
